@@ -1,0 +1,42 @@
+# .gitignore
+
+# Environment variables (Secrets)
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+worker/.env
+
+# Python caching & environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node.js (Frontend)
+node_modules/
+.next/
+out/
+build/
+dist/
+.pnpm-store/
+.yarn/
+*.log
+
+# IDEs & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Misc
+.aider*

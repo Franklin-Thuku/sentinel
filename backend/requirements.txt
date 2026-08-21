@@ -52,7 +52,7 @@ dnspython==2.7.0
 whois==0.9.4
 
 # SSL/TLS
-cryptography==44.0.0
+cryptography==50.0.0
 
 # Testing
 pytest==8.3.4

@@ -37,6 +37,8 @@ if TYPE_CHECKING:
     from app.db.models.finding import Finding
     from app.db.models.security_score import SecurityScore
     from app.db.models.report import Report
+    from app.db.models.alert import Alert
+    from app.db.models.ai_analysis import AIAnalysis
 
 
 class Scan(Base):
@@ -247,48 +249,62 @@ class Scan(Base):
     )
 
     # ================================================================
-    # Relationships
+    # Relationships (All commented out until models exist)
     # ================================================================
 
-    website: Mapped["Website"] = relationship(
-        "Website",
-        back_populates="scans",
-        lazy="selectin",
-    )
+    # website: Mapped["Website"] = relationship(
+    #     "Website",
+    #     back_populates="scans",
+    #     lazy="selectin",
+    # )
 
-    user: Mapped["User"] = relationship(
-        "User",
-        back_populates="scans",
-        lazy="selectin",
-    )
+    # user: Mapped["User"] = relationship(
+    #     "User",
+    #     back_populates="scans",
+    #     lazy="selectin",
+    # )
 
-    jobs: Mapped[list["ScanJob"]] = relationship(
-        "ScanJob",
-        back_populates="scan",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # jobs: Mapped[list["ScanJob"]] = relationship(
+    #     "ScanJob",
+    #     back_populates="scan",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
-    findings: Mapped[list["Finding"]] = relationship(
-        "Finding",
-        back_populates="scan",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # findings: Mapped[list["Finding"]] = relationship(
+    #     "Finding",
+    #     back_populates="scan",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
-    security_scores: Mapped[list["SecurityScore"]] = relationship(
-        "SecurityScore",
-        back_populates="scan",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # security_scores: Mapped[list["SecurityScore"]] = relationship(
+    #     "SecurityScore",
+    #     back_populates="scan",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
-    reports: Mapped[list["Report"]] = relationship(
-        "Report",
-        back_populates="scan",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # reports: Mapped[list["Report"]] = relationship(
+    #     "Report",
+    #     back_populates="scan",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
+
+    # alerts: Mapped[list["Alert"]] = relationship(
+    #     "Alert",
+    #     back_populates="scan",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
+
+    # ai_analyses: Mapped[list["AIAnalysis"]] = relationship(
+    #     "AIAnalysis",
+    #     back_populates="scan",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
     # ================================================================
     # Properties

@@ -31,10 +31,13 @@ from app.db.base import Base
 if TYPE_CHECKING:
     from app.db.models.user import User
     from app.db.models.organization import Organization
-    from app.db.models.scan import Scan
-    from app.db.models.website_verification import WebsiteVerification
-    from app.db.models.monitoring_config import MonitoringConfig
-    from app.db.models.alert import Alert
+    # from app.db.models.finding import Finding
+    # from app.db.models.security_score import SecurityScore
+    # from app.db.models.report import Report
+    # from app.db.models.scan import Scan
+    # from app.db.models.website_verification import WebsiteVerification
+    # from app.db.models.monitoring_config import MonitoringConfig
+    # from app.db.models.alert import Alert
 
 
 class Website(Base):
@@ -182,6 +185,7 @@ class Website(Base):
     # Relationships
     # ================================================================
 
+    # Keep these two (they reference models that exist)
     user: Mapped["User"] = relationship(
         "User",
         back_populates="websites",
@@ -194,33 +198,59 @@ class Website(Base):
         lazy="selectin",
     )
 
-    verifications: Mapped[list["WebsiteVerification"]] = relationship(
-        "WebsiteVerification",
-        back_populates="website",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # ================================================================
+    # COMMENTED OUT: These relationships reference models that don't exist yet
+    # Uncomment when the models are created
+    # ================================================================
 
-    scans: Mapped[list["Scan"]] = relationship(
-        "Scan",
-        back_populates="website",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # verifications: Mapped[list["WebsiteVerification"]] = relationship(
+    #     "WebsiteVerification",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
-    monitoring_configs: Mapped[list["MonitoringConfig"]] = relationship(
-        "MonitoringConfig",
-        back_populates="website",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # scans: Mapped[list["Scan"]] = relationship(
+    #     "Scan",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
-    alerts: Mapped[list["Alert"]] = relationship(
-        "Alert",
-        back_populates="website",
-        lazy="selectin",
-        cascade="all, delete-orphan",
-    )
+    # monitoring_configs: Mapped[list["MonitoringConfig"]] = relationship(
+    #     "MonitoringConfig",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
+
+    # alerts: Mapped[list["Alert"]] = relationship(
+    #     "Alert",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
+
+    # findings: Mapped[list["Finding"]] = relationship(
+    #     "Finding",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
+
+    # security_scores: Mapped[list["SecurityScore"]] = relationship(
+    #     "SecurityScore",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
+
+    # reports: Mapped[list["Report"]] = relationship(
+    #     "Report",
+    #     back_populates="website",
+    #     lazy="selectin",
+    #     cascade="all, delete-orphan",
+    # )
 
     # ================================================================
     # Properties

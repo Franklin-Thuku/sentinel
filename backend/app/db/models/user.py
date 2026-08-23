@@ -34,6 +34,7 @@ if TYPE_CHECKING:
     from app.db.models.alert import Alert
     from app.db.models.monitoring_config import MonitoringConfig
     from app.db.models.audit_log import AuditLog
+    from app.db.models.report import Report
 
 
 class User(Base):
@@ -207,6 +208,12 @@ class User(Base):
 
     audit_logs: Mapped[list["AuditLog"]] = relationship(
         "AuditLog",
+        back_populates="user",
+        lazy="selectin",
+    )
+
+    reports: Mapped[list["Report"]] = relationship(
+        "Report",
         back_populates="user",
         lazy="selectin",
     )

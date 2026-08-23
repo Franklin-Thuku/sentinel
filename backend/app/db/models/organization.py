@@ -39,6 +39,8 @@ if TYPE_CHECKING:
     from app.db.models.user import User
     from app.db.models.website import Website
     from app.db.models.subscription import Subscription
+    from app.db.models.audit_log import AuditLog
+    from app.db.models.usage_record import UsageRecord
 
 
 # ================================================================
@@ -220,6 +222,22 @@ class Organization(Base):
     # Subscriptions for this organization
     subscriptions: Mapped[List["Subscription"]] = relationship(
         "Subscription",
+        back_populates="organization",
+        lazy="selectin",
+        cascade="all, delete-orphan",
+    )
+
+    # Audit logs for this organization
+    audit_logs: Mapped[List["AuditLog"]] = relationship(
+        "AuditLog",
+        back_populates="organization",
+        lazy="selectin",
+        cascade="all, delete-orphan",
+    )
+
+    # Usage records for this organization
+    usage_records: Mapped[List["UsageRecord"]] = relationship(
+        "UsageRecord",
         back_populates="organization",
         lazy="selectin",
         cascade="all, delete-orphan",

@@ -26,24 +26,11 @@ from app.db.base import (
     get_db_status,
 )
 
-# Import models to register them with Base
-# This ensures all models are discovered when creating tables
+# Import models that currently exist
 from app.db.models import (
     User,
-    Website,
-    WebsiteVerification,
-    Scan,
-    ScanJob,
-    Finding,
-    AIAnalysis,
-    SecurityScore,
-    MonitoringConfig,
-    Alert,
-    Report,
-    Subscription,
-    UsageRecord,
-    AuditLog,
     Organization,
+    Website,
 )
 
 __all__ = [
@@ -57,18 +44,6 @@ __all__ = [
     "get_db_status",
     # Models
     "User",
-    "Website",
-    "WebsiteVerification",
-    "Scan",
-    "ScanJob",
-    "Finding",
-    "AIAnalysis",
-    "SecurityScore",
-    "MonitoringConfig",
-    "Alert",
-    "Report",
-    "Subscription",
-    "UsageRecord",
-    "AuditLog",
     "Organization",
+    "Website",
 ]

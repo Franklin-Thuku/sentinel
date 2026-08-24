@@ -44,31 +44,19 @@ export function Navbar() {
 
 
         <div className="flex items-center gap-3">
-            <Link
-                href="/auth/login"
-                className="hidden text-sm font-medium text-slate-200 hover:text-white sm:block"
-            >
-                Log in
-            </Link>
-            <Button
-                render={<Link href="/auth/register" />}
-                size="sm"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90"
-            >
-                Get Started
-            </Button>
-         </div>
-
-        <div className="flex items-center gap-3">
           <Link
             href="/auth/login"
             className="hidden text-sm font-medium text-slate-200 hover:text-white sm:block"
           >
             Log in
           </Link>
-         <Button render={<Link href="/auth/login" />} size="sm">
-            Login
-        </Button>
+         <Button
+                render={<Link href="/auth/register" />}
+                size="sm"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90"
+            >
+                Get Started
+            </Button>
         </div>
       </div>
     </nav>

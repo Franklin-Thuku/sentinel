@@ -48,7 +48,7 @@ python-dateutil==2.9.0
 pytz==2024.2
 
 # DNS & Network
-dnspython==2.7.0
+dnspython==2.9.0
 whois==0.9.4
 
 # SSL/TLS
